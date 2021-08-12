@@ -42,3 +42,77 @@ code:before,
 code:after {
   content: '\`';
 }
+
+.gameBoard {
+  max-width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  aspect-ratio: 1/1;
+}
+
+.gameBoardBox {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+}
+
+.gameDice {
+  /* box-sizing: border-box; */
+  /* font-size: 6em; */
+  margin: 0;
+  /* padding: 5px; */
+  aspect-ratio: 1/1;
+}
+
+.diceCube {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+  background-color: aliceblue;
+  border: #282c34 solid 10px;
+  color: #282c34;
+  aspect-ratio: 1/1;
+}
+
+.timeDone {
+  border: red solid 10px;
+}
+
+/* .whiteDice{ */
+  /* margin: 8px; */
+  /* aspect-ratio: 1/1; */
+/* } */
+
+.fiveby5 {
+  width: 20%;
+  aspect-ratio: 1/1;
+  font-size: 1.5em;
+}
+
+.fourby4 {
+  width: 25%;
+  aspect-ratio: 1/1;
+  font-size: 1.75em;
+}
+
+.board-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 300px;
+  align-items: center
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: xx-large;
+  min-width: 500px;
+  margin-bottom: 20px;
+}

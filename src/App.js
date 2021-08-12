@@ -1,57 +1,38 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
 import './App.css';
+import React, { useEffect } from 'react'
+import GameBoard from './components/GameBoard'
+import { Grid } from '@material-ui/core'
+import { connect } from 'react-redux';
+import { setLettersList } from './actions';
+import Timer from './components/Timer';
 
-function App() {
-  const [date, setDate] = useState(null);
+const App = (props) => {
+
+  // console.log(props.lettersList)
+  // console.log(setLettersList((props.boardDice)))
+  
   useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.text();
-      setDate(newDate);
-    }
-    getDate();
-  }, []);
+    props.setLettersList(props.boardDice)
+  },[])
+
   return (
-    <main>
-      <h1>Create React App + Go API</h1>
-      <h2>
-        Deployed with{' '}
-        <a
-          href="https://vercel.com/docs"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Vercel
-        </a>
-        !
-      </h2>
-      <p>
-        <a
-          href="https://github.com/vercel/vercel/tree/main/examples/create-react-app"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          This project
-        </a>{' '}
-        was bootstrapped with{' '}
-        <a href="https://facebook.github.io/create-react-app/">
-          Create React App
-        </a>{' '}
-        and contains three directories, <code>/public</code> for static assets,{' '}
-        <code>/src</code> for components and content, and <code>/api</code>{' '}
-        which contains a serverless <a href="https://golang.org/">Go</a>{' '}
-        function. See{' '}
-        <a href="/api/date">
-          <code>api/date</code> for the Date API with Go
-        </a>
-        .
-      </p>
-      <br />
-      <h2>The date according to Go is:</h2>
-      <p>{date ? date : 'Loading date...'}</p>
-    </main>
+    <div className="App">
+
+      <Grid className="App-header">
+        <Timer />
+        <GameBoard />
+
+      </Grid>
+    </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return({
+    lettersList: state.lettersList,
+    boardDice: state.boardDice
+
+  })
+}
+
+export default connect(mapStateToProps, {setLettersList})(App);
