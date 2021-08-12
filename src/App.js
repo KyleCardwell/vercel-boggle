@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useEffect } from 'react'
-import GameBoard from './components/GameBoard'
+import GameBoard from './components/GameBoard';
 import { Grid } from '@material-ui/core'
 import { connect } from 'react-redux';
 import { setLettersList } from './actions';
